@@ -8,14 +8,10 @@ import { PlaylistService } from '../../../services/playlist/playlist.service';
   templateUrl: './playlist-list.component.html',
   styleUrls:[ './playlist-list.component.css']
 })
-export class PlaylistListComponent implements OnInit{
+export class PlaylistListComponent {
   playlists: any[] = []; // Propriété pour stocker les playlists
 
   constructor(public playlistService: PlaylistService, private router: Router) {} // Ensure playlistService is public
-
-  ngOnInit(): void {
-    this.playlists = this.playlistService.getPlaylists();
-  }
 
   navigateToCreatePlaylist(): void {
     this.router.navigate(['/add-playlist']);
@@ -43,9 +39,5 @@ export class PlaylistListComponent implements OnInit{
 
   deleteAllTracks(playlistIndex: number, albumIndex: number): void {
     this.playlistService.deleteAllTracks(playlistIndex, albumIndex);
-  }
-  addPlaylist(newPlaylist: any): void {
-    this.playlists.push(newPlaylist);
-    this.playlistService.setPlaylists(this.playlists); // Mettez à jour le stockage
   }
 }

@@ -9,35 +9,9 @@ import { Playlist } from '../../playlist';
 })
 export class PlaylistService {
   private playlists: Playlist[] = [];
-  private storageKey = 'playlists';
-
-  constructor() {
-    this.loadPlaylists();
-  }
-
-  private savePlaylists(): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.getPlaylists()));
-  }
-
-  private loadPlaylists(): void {
-    const playlists = localStorage.getItem(this.storageKey);
-    if (playlists) {
-      // Chargez les playlists dans votre variable d'état
-      console.log("Playlists chargées :", playlists);
-      this.playlists = JSON.parse(playlists);
-    } else {
-      console.log("Aucune playlist trouvée dans localStorage.");
-    }
-  }
 
   getPlaylists(): Playlist[] {
     return this.playlists;
-  }
-
-  setPlaylists(playlists: any[]): void {
-    // Mettre à jour la variable d'état avec les nouvelles playlists
-    this.playlists = playlists;
-    this.savePlaylists();
   }
 
   addPlaylist(playlist: Playlist): void {
