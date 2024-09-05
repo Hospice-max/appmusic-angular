@@ -1,1 +1,53 @@
-<p>playlist-form works!</p>
+<div class="red-bout">
+  <button class="redirect"><a href="/playlist">Voir la liste des playlists</a></button>
+</div>
+
+<!-- Ajouter et supprimer une playlist -->
+<form class="col playlist-form" (ngSubmit)="addPlaylist()">
+<div class="input-group mb-3">
+  <input [(ngModel)]="newPlaylistName" name="playlistName" placeholder="Create new Playlist" required class="form-control" aria-describedby="button-addon1">
+  <button class="btn btn-outline-secondary" type="submit">➕</button>
+</div>
+</form>
+
+<div class="playlists-container">
+  <div class="playlist-card" *ngFor="let playlist of playlistService.getPlaylists(); let i = index">
+    <div class="playlist-header">
+      <h3>Playlist: {{playlist.name}}</h3>
+      <div class="dropdown">
+        <button class="btn" (click)="removePlaylist(i)">❌</button>
+      </div>
+    </div>
+    
+
+    <!-- Ajouter et supprimer un album-->
+    <form class="col album-form" (ngSubmit)="addAlbum(i)">
+      <input type="text" [(ngModel)]="newAlbumTitle" name="albumTitle" placeholder="Album Title">
+      <button class="button" type="submit">✔</button>
+    </form>
+    
+    <div class="albums-container">
+      <div class="album-card" *ngFor="let album of playlist.albums; let j = index">
+        <div class="album-header">
+          <h4>Album: {{album.title}}</h4>
+          <div class="dropdown">
+              <button class="btn" (click)="removeAlbum(i, j)">❌</button>     
+          </div>
+        </div>
+        
+        <!-- Ajouter et supprimer une musique !-->
+        <form class="col track-form" (ngSubmit)="addTrack(i, j)">
+          <input [(ngModel)]="newTrackTitle" name="trackTitle" placeholder="Track Title">
+          <input [(ngModel)]="newTrackDuration" name="trackDuration" placeholder="Track Duration">
+          <button class="button" type="submit">✔</button>
+        </form>
+        
+        <ul class="track-list">
+          <li *ngFor="let track of album.tracks">
+            {{track.trackNumber}}. {{track.title}} ({{track.duration}})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

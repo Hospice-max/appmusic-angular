@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ArtistListComponent } from './components/artist/artist-list/artist-list.component';
 import { PlaylistListComponent } from './components/playlist/playlist-list/playlist-list.component';
 import { MusicListComponent } from './components/music/music-list/music-list.component';
+import { PlaylistFormComponent } from './components/playlist/playlist-form/playlist-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
@@ -25,8 +26,11 @@ const routes: Routes = [
   { path: 'artist', component: ArtistListComponent },
   { path: 'playlist', component: PlaylistListComponent },
   { path: 'music', component: MusicListComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'add-playlist', component: PlaylistFormComponent },
+  { path: '', redirectTo: '/playlists', pathMatch: 'full' } // Redirige vers la liste des playlists par défaut
 ];
+//   { path: '**', component: PageNotFoundComponent },
+// ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

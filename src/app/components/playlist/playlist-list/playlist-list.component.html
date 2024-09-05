@@ -1,1 +1,31 @@
-<p>playlist-list works!</p>
+<!-- Création et suppression de playlist-->
+<div class="container">
+  <div class="col">
+    <button type="submit" class="btn btn-outline-secondary" (click)="navigateToCreatePlaylist()">Create New Playlist</button>
+    <button type="submit" class="btn btn-outline-secondary" (click)="deleteAllPlaylists()">Delete All Playlists</button>
+  </div>
+
+  <!-- Affichage et suppression d'une playliste et de tous les albums -->
+  <h2>Playlists</h2>
+  <div class="line" *ngFor="let playlist of playlistService.getPlaylists(); let i = index">
+    <h3>{{playlist.name}}
+      <button type="submit" class="btn btn-primary" (click)="deletePlaylist(i)">❌</button>
+      <button type="submit" class="btn btn-primary" (click)="deleteAllAlbums(i)">Delete All Albums</button>
+    </h3>
+
+    <!-- Affichage et suppression d'un album et de toutes les musiques -->
+    <div class="line" *ngFor="let album of playlist.albums; let j = index">
+      <h4>{{album.title}}
+        <button type="submit" class="btn btn-outline-secondary" (click)="deleteAlbum(i, j)">❌</button>
+        <button type="submit" class="btn btn-outline-secondary" (click)="deleteAllTracks(i, j)">Delete All Tracks</button>
+      </h4>
+      <!-- Affichage et suppression d'une musique -->
+      <ul class="line" >
+        <li *ngFor="let track of album.tracks; let k = index">
+          {{track.trackNumber}}. {{track.title}} ({{track.duration}})
+          <button type="submit" class="btn btn-outline-secondary" (click)="deleteTrack(i, j, k)">❌</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

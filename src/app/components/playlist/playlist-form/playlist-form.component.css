@@ -1,0 +1,135 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  span {
+    cursor: pointer;
+    color: blue;
+  }
+  /* Playlist Card */
+  .playlists-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .playlist-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Album Card */
+  .albums-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .album-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .album-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Forms */
+  .playlist-form, .album-form, .track-form {
+    margin-bottom: 1rem;
+  }
+  
+  input {
+    margin-right: 0.5rem;
+    padding: 3px;
+  }
+  
+  /* Track List */
+  .track-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .track-list li {
+    padding: 0.25rem 0;
+  }
+  
+  .button {
+    border-radius: 7px;
+    border: 1px solid aqua;
+    background-color: aqua;
+    padding: 4px 10px;
+  }
+
+  .red-bout{
+      display: flex;
+      justify-content: end;
+      margin-bottom: 2rem;
+  }
+  
+  .red-bout a {
+      text-decoration: none;
+      color: black;
+  }
+
+  .redirect {
+    border: 2px solid black;
+    border-radius: 7px;
+    background-color: transparent;
+  }

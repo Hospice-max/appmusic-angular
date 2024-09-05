@@ -21,6 +21,8 @@ import { PlaylistListComponent } from './components/playlist/playlist-list/playl
 import { MusicFormComponent } from './components/music/music-form/music-form.component';
 import { MusicListComponent } from './components/music/music-list/music-list.component';
 import { AlbumFormComponent } from './components/home/album-form/album-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { AlbumFormComponent } from './components/home/album-form/album-form.comp
     MusicFormComponent,
     MusicListComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
